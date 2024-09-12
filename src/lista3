@@ -1,0 +1,66 @@
+import java.util.Scanner;
+
+public class CalculoSalarioFuncionario {
+
+    public static void main(String[] args) {
+      
+        Scanner scanner = new Scanner(System.in);
+
+       
+        System.out.println("Digite o salário base do funcionário:");
+        double salarioBase = scanner.nextDouble();
+
+        System.out.println("Digite a pontuação do funcionário (0-100):");
+        double pontuacao = scanner.nextDouble();
+        
+       
+        String categoria = avaliarDesempenho(pontuacao);
+        
+  
+        double salarioFinal = calcularSalarioFinal(salarioBase, categoria);
+        
+        /
+        System.out.println("A categoria de desempenho do funcionário é " + categoria);
+        System.out.println("O salário final do funcionário é R$ " + String.format("%.2f", salarioFinal));
+        
+
+        scanner.close();
+    }
+
+    public static String avaliarDesempenho(double pontuacao) {
+        if (pontuacao >= 0 && pontuacao <= 49) {
+            return "insatisfatório";
+        } else if (pontuacao >= 50 && pontuacao <= 69) {
+            return "regular";
+        } else if (pontuacao >= 70 && pontuacao <= 89) {
+            return "bom";
+        } else if (pontuacao >= 90 && pontuacao <= 100) {
+            return "ótimo";
+        } else {
+            return "pontuação inválida";
+        }
+    }
+
+    
+    public static double calcularSalarioFinal(double salarioBase, String categoria) {
+        double bonusPercentual = 0;
+
+        switch (categoria) {
+            case "ótimo":
+                bonusPercentual = 0.20;
+                break;
+            case "bom":
+                bonusPercentual = 0.10;
+                break;
+            case "regular":
+                bonusPercentual = 0.05;
+                break;
+            case "insatisfatório":
+            case "pontuação inválida":
+                bonusPercentual = 0;
+                break;
+        }
+
+        return salarioBase + (salarioBase * bonusPercentual);
+    }
+}

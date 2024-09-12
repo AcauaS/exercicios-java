@@ -1,0 +1,21 @@
+public class Horas(){}
+
+public class static main(String[args]){
+
+Scanner ler= new Scanner(System.in);
+
+System.out.println("digite o Horario");
+System.out.println("");
+int horasC= 9;
+
+
+boolean horacomercial =(horas 18==9 );
+
+if  (horasC>19) {
+System.out.println("É horario comercial");
+
+} else 
+ ("Não é horario comercial");
+}
+
+}
