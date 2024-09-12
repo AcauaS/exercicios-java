@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class SomaArray {
+    public static void main(String[] args) {
+     
+        Scanner scanner = new Scanner(System.in);
+        
+        int[] numeros = new int[5];
+
+        System.out.println("Digite 5 números inteiros:");
+        for (int i = 0; i < 5; i++) {
+            System.out.print("Número " + (i + 1) + ": ");
+            // Ler o número inteiro e armazenar no array
+            numeros[i] = scanner.nextInt();
+        }
+        
+      
+        scanner.close();
+        
+
+        int soma = 0;
+        for (int i = 0; i < numeros.length; i++) {
+            soma += numeros[i];
+        }
+        
+        System.out.println("A soma dos números é: " + soma);
+    }
+}
